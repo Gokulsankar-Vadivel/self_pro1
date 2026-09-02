@@ -1,0 +1,6 @@
+{
+  "name": "AI Telemedicine & Hospital Management System",
+  "description": "Smart Healthcare, Anytime, Anywhere - AI triage assistant, doctor consultations, prescriptions, medicine reminders, hospital locator, vitals monitoring, RAG medical knowledge, and ML health risk prediction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
