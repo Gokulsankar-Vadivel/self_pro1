@@ -76,6 +76,9 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Start production server
+npm start
 ```
 
 ### 2. Python Flask Backend (Optional Standalone Backend)
@@ -88,10 +91,55 @@ python app.py  # Starts Flask REST API on http://localhost:5000
 ```
 
 ### 3. Environment Variables
-Create a `.env` file with:
+Create a `.env` file in the root directory:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
+
+---
+
+## 🚀 How to Deploy & Push to GitHub
+
+### Option A: Direct Export from Google AI Studio (Easiest)
+1. In Google AI Studio, click on the **Settings** / **Export** menu in the top right.
+2. Select **"Export to GitHub"** or **"Download ZIP"**.
+3. Choose or create your destination GitHub repository.
+4. AI Studio will automatically push the entire repository to your GitHub account!
+
+### Option B: Push via Git CLI
+If you downloaded the code or have a local clone:
+```bash
+# 1. Initialize git repository (if not already initialized)
+git init
+
+# 2. Add all project files
+git add .
+
+# 3. Commit your changes
+git commit -m "Initial commit: AI Telemedicine & Hospital Management System"
+
+# 4. Link your remote GitHub repository
+git branch -M main
+git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+
+# 5. Push to GitHub
+git push -u origin main
+```
+
+### Option C: Continuous Integration (CI) with GitHub Actions
+This project includes pre-configured **GitHub Actions** (`.github/workflows/ci.yml`) that automatically:
+- Installs dependencies on Node.js 20
+- Runs TypeScript type checking and linting
+- Executes the production Vite & Node bundle build on every push or pull request.
+
+### Option D: 1-Click Cloud Deployment (Render / Railway / Cloud Run / Docker)
+This project includes a production-ready `Dockerfile` and `esbuild` server compiler.
+- **Render / Railway / Fly.io:** Simply connect your GitHub repository and set `GEMINI_API_KEY` in Environment Variables.
+- **Docker Command:**
+  ```bash
+  docker build -t ai-telemedicine-app .
+  docker run -p 3000:3000 -e GEMINI_API_KEY=your_key ai-telemedicine-app
+  ```
 
 ---
 
